@@ -35,11 +35,6 @@ We chose the LEGO 32019+86652 wheels because the 43.2 x 14 rubber tire (86652) p
 (b)	Implementation of motor and its engineering principle
 We use two Medium Motors to move the robot forward and backward. By placing them side by side horizontally, or we known as laterally to save space and make the robot more compact. This setup also makes it easier to arrange the reduction gears and keeps the center of gravity low, which improves stability during high-speed movement or turns and reduces the risk of tipping.
 
-![image](https://github.com/user-attachments/assets/ed2d1db9-f80f-4440-af76-af2387c30c43)
-  ![image](https://github.com/user-attachments/assets/0e8f951f-af5b-4631-a99a-22a8a37a9a81)
-  ![image](https://github.com/user-attachments/assets/0f8c650d-eaf5-4090-9382-294ddebbe9a5)
-
-
 
 The diagram below show the details of the EV3 Medium Motor. 
 ![image](https://github.com/user-attachments/assets/0ab6104f-f4e0-4a4f-bc85-c1ea3a65089d)
