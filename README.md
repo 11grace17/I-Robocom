@@ -61,8 +61,6 @@ In our project, we utilize the Clev3r-Python programming language to operate the
 ## 3.1	Open Challenge
 The left and right ultrasonic sensors help the robot determine its direction, whether it is moving clockwise or counterclockwise. These sensors detect the distance between the robot and nearby walls, allowing the robot to adjust its steering mechanism to avoid collisions. When an ultrasonic sensor reaches a certain threshold, indicating the absence of a wall, the robot will turn accordingly. Additionally, the gyro sensor ensures that the robot maintains a straight path and makes precise turns when necessary.
 		
-Diagram below shows the flowchart for Open Challenge.
-![image](https://github.com/user-attachments/assets/1f422301-15a7-418f-8f6d-10365e10beb2)
 
 Below is the brief demostration video for Open Challenge
 https://www.youtube.com/watch?v=1dNnKrStQGQ 
@@ -71,9 +69,7 @@ https://www.youtube.com/watch?v=1dNnKrStQGQ
 The upper Pixy 2 camera detects traffic signs. If it detects a red traffic sign, the robot's steering will turn right; if it detects a green traffic sign, the robot will respond similarly with the specified action for green. The bottom color sensor helps the robot follow the colored lines on the map. If it detects an orange line first, the robot will turn clockwise; if it detects a blue line first, it will turn counterclockwise.
 The rear Pixy 2 camera assists with U-turn decisions. When it detects a red signal, the robot performs a U-turn; if it detects green, the robot continues completing three normal laps.
 The gyro sensor maintains its primary role of ensuring the robot travels in a straight line and executes precise turns.
-Diagram below shows the flowchart for the Obstacle Challenge:
 
-![image](https://github.com/user-attachments/assets/11c9ed85-aea6-433b-b1d8-e38bb2d1a6df)
 
 Below is the brief demostration video for Obstacle Challenge
 https://www.youtube.com/watch?v=YTYfLjIolEA
