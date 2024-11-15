@@ -170,11 +170,97 @@ The setSensorMode function is called to configure two sensors on port 2, with ch
 The ResetSteering subroutine reset motor A. It starts the motor at 50% power for 500 milliseconds, then waits until the motor stops. Afterwards, it moves the motor backwards at -50% speed for 110 degrees and finally resets the motor's position count. The Motor. The move function specifies the motor port, speed, rotation degrees, and brake mode.
 
 ![image](https://github.com/user-attachments/assets/a3e6b349-12bf-49d1-acc3-22842ca0aebd)
+
 ![image](https://github.com/user-attachments/assets/ddcfbd4f-ee31-4a19-8ac5-de7024c2632f)
 
 The subroutine Steering calculates the steering adjustments for a self-driving car based on its relative heading and wall distances. It first reads the raw value from sensor 3, adjusts it by negating it and adding a target value to get relativeHeading. If the absolute value of relativeHeading is less than 20 and loopCount is greater than 0, it checks if the self-driving car is moving clockwise (cw = 1). Depending on the direction, it retrieves the right or left distance using getValue, updating the Wall variable if the distance is less than 2500.
 The subroutine then computes a gyro correction based on the relativeHeading and its previous error and a wall correction based on the distance to the wall. These corrections are combined to determine the steering adjustment and turn. If the condition is not met, it turns to a scaled version of relativeHeading. Finally, it calculates the power for the medium motor by adjusting the steering power based on the difference between the calculated turn and the motor count and activates the motor with Motor.StartPower("A", steeringPower).
 
+![image](https://github.com/user-attachments/assets/ae0ddc0b-8f90-4268-818a-7a04e66497b0)
+The code snippet starts by activating motor "D" at 75% power using Motor.StartPower("D", 75). It then retrieves distance measurements from two sensors: it calls getValue(2, 1, leftDistance) to get the left distance and getValue(2, 2, rightDistance) to get the right distance. This setup is likely part of a control mechanism for navigating or avoiding obstacles based on the distances measured by the sensors.
 
+![image](https://github.com/user-attachments/assets/54b959ef-a14e-4188-84d7-d781d6f8deb9)
+![image](https://github.com/user-attachments/assets/8664155b-c6c9-4024-9017-1a9de2b0f17e)
+The code snippet initiates a loop that runs while loopCount is less than 12. In the first iteration (loopCount = 0), it waits for the motor to rotate 150 degrees with waitDegrees(150) and enters a nested loop that continuously retrieves left and right distance measurements until both distances are less than 1800. Within this loop, it calls the Steering() function to adjust the self-driving car’s direction. Afterwards checks if the right distance exceeds 1800; if so, it sets cw to 1 (indicating a clockwise direction), otherwise, it sets cw to -1. 
+For subsequent iterations, it waits for the motor to rotate 1300 degrees, and based on the current value of cw, it enters another nested loop that keeps calling Steering() while either the left or right distance is less than 1800. After each iteration, it adjusts the target by subtracting 91 multiplied by cw and increments loopCount. It also plays a tone using the speaker.
+After the loop concludes, the code waits for the motor to rotate 1250 degrees, and then it enters an infinite loop that stops motor "D" with Motor.Stop("D", "True").
 
+## 3.2	Obstacle challenge
 
+The upper Pixy2 camera detects traffic signs. If it detects a red traffic sign, the self-driving car’s steering will turn right; if it detects a green traffic sign, the self-driving car will respond similarly with the specified action for green. The bottom color sensor helps the self-driving car follow the colored lines on the map. If it detects an orange line first, the self-driving car will turn clockwise; if it detects a blue line first, it will turn counterclockwise.
+The rear Pixy2 camera assists with U-turn decisions. When it detects a red signal, the self-driving car performs a U-turn; if it detects green, the self-driving car continues completing three normal laps. The gyro sensor maintains its primary role of ensuring the self-driving car travels in a straight line and executes precise turns.
+
+The diagram below shows the flowchart for the Obstacle Challenge:
+
+![image](https://github.com/user-attachments/assets/09f107cb-6e1c-49c8-8a61-bbc928c952ab)
+
+Below shows the explanation of the programming for the obstacle challenge. 
+
+![image](https://github.com/user-attachments/assets/e2331a10-b880-4bcf-8c2f-7ea07bfcdece)
+Folder creation, the code is creating or using a folder named "Clever" in the EV3's projects area. The color sensor connected to Port 4 is being set to detect colors. 
+
+![image](https://github.com/user-attachments/assets/e99352c4-806c-43dd-b8f4-6e42d43dab85)
+“Function Display (in number value1, in number value2)” is a function called Display that takes two input numbers, value1 and value2. “LCD. Clear ()” is used to clear the EV3's LCD screen to make sure there is no previous content displayed. The brackets LCD. Text (1,50,0,2, value1) represents the colors, x, y, font and text respectively. 
+
+![image](https://github.com/user-attachments/assets/68d8a0b1-4ddc-48ac-b5b7-4ff5ec6bd60f)
+The setSensorMode function configures a multiplexer sensor by specifying the communication port, channel number, and desired mode. It calculates the I2C address based on the channel and sends a command to the sensor to set the specified mode using the Sensor.WriteI2CRegister function. This allows the robot to adapt the sensor's functionality according to the requirements of the task.
+
+![image](https://github.com/user-attachments/assets/5565d4e6-2f0a-4bfd-a92d-a87306493ec8)
+The getValue function reads the value from a multiplexer sensor connected to a specified port and channel on the EV3. It calculates the I2C address based on the channel, retrieves two bytes of data from the sensor, and combines these bytes to create a single sensor value, which is stored in the output variable values.
+
+![image](https://github.com/user-attachments/assets/ba97c030-7358-4468-bdf8-654ac74c42f3)
+The getSignature function retrieves the x and y coordinates of an object detected by the Pixy camera on a specified port using a given signature. It calculates the I2C address with 80 + sig, reads 5 bytes of data from the Pixy camera, and assigns the x and y coordinates from the data to the x and y output variables.
+
+![image](https://github.com/user-attachments/assets/3951dc14-5025-45c8-856c-825b27991bae)
+The sensor function initializes the relative heading to zero, indicating no gyro error. It then sets the modes for three channels of the multiplexer sensor on port 2 to mode 0 using the setSensorMode function. This prepares the sensors for operation by configuring them to read data correctly for the robot's tasks.
+
+![image](https://github.com/user-attachments/assets/17412b1a-a6a2-4408-9184-a0e8f92a2394)
+The code defines a sensor function that continuously reads values from a gyro and wall sensors on the EV3. It sets the sensor modes for multiple channels and enters a loop in the ReadSensor subroutine. Inside this loop, it retrieves the raw gyro value and adjusts it to account for gyro errors, calculating the relative heading. It also reads values for the left and right walls and retrieves color signature values for different colors. The ReadSensor subroutine runs as a separate thread, allowing multitasking while reading sensor data.
+
+![image](https://github.com/user-attachments/assets/3a6b02f8-f650-4e61-ada3-e16221728708)
+The ResetSteering subroutine controls motor A to reset its position. It starts the motor at 50% power for 500 milliseconds, then waits until the motor stops. Afterwards, it moves the motor backwards at -50% speed for 105 degrees and finally resets the motor's position count. The Motor.Move function specifies the motor port, speed, rotation degrees, and brake mode.
+
+![image](https://github.com/user-attachments/assets/b71adc6f-70d8-446d-b09b-e3a735d42623)
+The code defines variables for the self-driving car’s navigation: target sets the self-driving car’s heading direction to 0, lastPillar stores the last detected pillar, followRed and followGreen determine the distances to follow red and green pillars (200 and 220 units, respectively), and avoidRed and avoidGreen set the distances to avoid red and green pillars (10 and 5 units less than their following distances). These variables guide the car's movement in relation to the pillars it encounters.
+
+![image](https://github.com/user-attachments/assets/ba61d789-02cb-4b5c-a63a-5a03dfa04eee)
+
+![image](https://github.com/user-attachments/assets/84305e4c-3f90-4828-9242-d19976c3470d)
+
+![image](https://github.com/user-attachments/assets/909c636c-80fb-4f69-a06c-5cdc0b7a2569)
+
+![image](https://github.com/user-attachments/assets/b37ad856-47db-497f-85dc-a6dceeaf74e8)
+
+![image](https://github.com/user-attachments/assets/27be384b-5aea-4d57-a825-de130b519d56)
+
+![image](https://github.com/user-attachments/assets/f1db1e8b-7474-42d9-a50b-d30e2f8d767a)
+
+In the Loop Functions, several variables are initialized to manage the car's operation, including speed, loop counts, and wall checks. The car assesses colors using the getSignature function to determine its last detected colors. If the last red object's y-coordinate is greater than that of the last green object, it prepares for a U-turn based on the detected colors. The main loop runs until loopCount reaches the predefined round. During the first section, it resets steering, waits for specific degrees, and reacts to color sensor readings, adjusting its direction accordingly. If a U-turn is needed after the eighth iteration, it modifies its target angle and waits before continuing. Finally, parking degrees are calculated based on the last detected pillar's color, and the car manoeuvres its parking position while adjusting for color detection.
+
+# 4.0 Engineering factor
+	This section includes our design for the own manufacturing part and components. Moreover, this section also includes an explanation of the third-party element that is installed in the self-driving car.
+ 
+  Our autonomous self-driving car is built mainly from the Lego 45544 Mindstorms EV3 Education Set. In addition, we have also installed a 3ʳᵈ party sensor, the Pixy 2 camera, and incorporated a 3D printing component. We had created a casing for the color sensor by using the 3D printer. The primary purpose of the components is to prevent the external light from interfering with its color detection. Additionally, the casing serves to protect the sensor in case of impact or collision.
+
+![image](https://github.com/user-attachments/assets/41c3a438-dcb5-484f-9ede-96eeb04ee662)
+
+# 5.0 Improvements
+In this section, we outline the challenges encountered during the development of our self-driving car and the alternative approaches we adopted to enhance its performance. Through careful analysis of each obstacle, we identified and implemented improvements that have optimized the car's functionality, making it more reliable and efficient.
+
+**(i)	Replace the compass sensor with the gyro sensor**
+![image](https://github.com/user-attachments/assets/26a6cc54-db3c-441c-bf91-c496197ff8e2)
+
+We initially used a compass sensor but ultimately switched to a gyro sensor. This decision was made because the wiring and electric motor in the device generate a strong electromagnetic field, which can interfere with the compass sensor and result in inaccurate readings. To address this issue, we ultimately decided to use a gyro sensor instead. The gyro sensor was chosen because it is less susceptible to electromagnetic interference from the device’s components, unlike the compass sensor. This allows the car to maintain consistent orientation and movement without disruptions from nearby magnetic fields.
+
+**(ii) Implementing a multiplexer to solve the limited EV3 ports issue**
+![image](https://github.com/user-attachments/assets/3a66bbe4-5539-4ce6-9c61-115190fe0246)
+
+We also faced issue where we have only limited EV3 ports. Therefore, a multiplexer is used to solve this issue. The multiplexer allowed us to expand the number of available ports, enabling us to connect additional sensors and components to the EV3 without being limited by the device's built-in ports.
+
+**(iii)	Replace 44771-062225 wheels to 32019+86652 wheels**
+![Uploading image.png…]()
+
+We started with the LEGO 44771 - 6062225 wheels but switched to the smaller LEGO 32019+86652 wheels. The smaller size makes it easier for the car to turn and park, improving its maneuverability and handling in tight spaces.
+
+# Credits
+We sincerely thank LEGO Education for their valuable support and dedication in supporting us with a high-quality LEGO EV3 set.
