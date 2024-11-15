@@ -15,59 +15,101 @@ models This folder contains the 3D design of the vehicle in .lxf and the rendere
 other This folder contains other files which can be used to understand how to prepare the vehicle for the competition.
 
 # I-Robocom Team, Malaysia
-Our team, consisting of three dedicated members, meticulously manages vital aspects of the build. Here’s a brief introduction for team I-Robocom from Malaysia and an overview of the essential electromechanical components powering our fully autonomous vehicle. Let’s meet our team members: Nelson Soo Hui Leng, Chang Pei Ru and Grace Tan Hong Hui.
- 
-![image](https://github.com/user-attachments/assets/9b97fa88-97bf-43cb-a684-3b05c71ba12a)
+Our team is composed of three dedicated members who meticulously oversee the critical aspects of our autonomous vehicle's construction. Introducing Team I-Robocom from Malaysia - a passionate group devoted to refining the essential electromechanical components that power our fully autonomous vehicle. Let’s meet our team members: 
 
-# 1.0 Mobility Management
-This section provides an overview of the robot’s design, detailing how its movement is controlled, along with the types of motors used. It includes a summary of the vehicle’s chassis design and how various components are mounted on the structure. Additionally, key engineering principles such as speed, torque, and power are discussed.
+**Nelson Soo Hui Leng, Chang Pei Ru, and Grace Tan Hong Hui.**
+![image](https://github.com/user-attachments/assets/84435c43-2075-4297-839f-361b506616f9)
 
-## 1.1 Design of the robot
-The autonomous robot is constructed using the Lego 45544 Mindstorms EV3 Education Set. 
-![image](https://github.com/user-attachments/assets/a3faa8c6-da3b-4916-b486-fa2adb304ab8)
+# Performance video
+This video provides an in-depth look at the structure of our self-driving car, a demonstration of its performance in both the Open Challenge and Obstacles Challenge, and a detailed explanation of how the car operates within each challenge. Please scan the QR code to watch the video and explore our project in action.
+![image](https://github.com/user-attachments/assets/c58d3a75-2d0c-4547-bfa3-9f3a22b076c9)
 
-## 1.2 	Chassis of the robot
-The design of the vehicle's chassis plays a crucial role in providing structural support, which ensures the robot remains stable during fast movements like sharp turns and rapid accelerations. Therefore, our self-driving car is designed based on the selection of the tyre, the implementation of motors, the implementation of differential gear and the engineering principle of the steering.
-
-(a)	Selection of tyre
-We chose the LEGO 32019+86652 wheels because the 43.2 x 14 rubber tire (86652) provides strong grip on different surfaces, reducing slipping and improving stability. It allows our self-driving car to move in a stable way while encountered in both Open Challenge and Obstacle Challenge.
-
-(b)	Implementation of motor and its engineering principle
-We use two Medium Motors to move the robot forward and backward. By placing them side by side horizontally, or we known as laterally to save space and make the robot more compact. This setup also makes it easier to arrange the reduction gears and keeps the center of gravity low, which improves stability during high-speed movement or turns and reduces the risk of tipping.
+# 1.0 Mobility management
+This section provides an overview of the self-driving car’s design, detailing how its movement is controlled, along with the types of motors used and its implementation to the car. It includes a summary of the car’s chassis design and how various components are mounted on the structure. Additionally, key engineering principles such as speed, torque, and power are discussed.
 
 
-The diagram below show the details of the EV3 Medium Motor. 
-![image](https://github.com/user-attachments/assets/0ab6104f-f4e0-4a4f-bc85-c1ea3a65089d)
+## 1.1 Design of the self-driving car
+The autonomous self-driving car is constructed using the Lego 45544 Mindstorms EV3 Education Set.
+![image](https://github.com/user-attachments/assets/15e86b06-f310-496a-9d32-9d8f4bc5ba7e)
+
+## 1.2  Chassis of the self-driving car
+The design of the self-driving car’s chassis plays a crucial role in providing structural support, which ensures the car remains stable during fast movements like sharp turns and rapid accelerations. Therefore, our self-driving car is designed based on the concept of the right selection of the tyre, the implementation of motors, the implementation of differential gear and the engineering principle of the steering.
+
+**(i) Selection of tyre**
+We chose the LEGO 32019 rim and 86652 wheels because it provides a strong grip on different surfaces, reducing slipping and improving stability. It allows our self-driving car to move in a stable way while encountering both Open Challenge and Obstacle Challenge.
+
+![image](https://github.com/user-attachments/assets/eac805de-df8d-4322-80ef-265ed60a7347)
 
 
-The Medium Motor is built for quick reactions and precise movements. It’s great for tasks like steering a robot, where small adjustments are needed. With that, the running torque of 8 Ncm and a stalled torque of 15 Ncm allow the robot to handle moderate forces for the steering. With a speed of 260 rpm, the medium motor can rotate quickly, making it ideal for rapid changes in direction or fine adjustments.
+**(ii) Implementation of motor and its engineering principle**
+We use two EV3 Medium Motors to move the self-driving car forward and backwards. Placing them side by side horizontally or laterally to save space and make the car more compact. This setup also makes it easier to arrange the reduction gears and keeps the centre of gravity low, which improves stability during high-speed movement during the Open Challenge.
 
-(c)	Implementation of differential gear
-The differential gear distributes power between two axles, allowing them to rotate at different speeds. This helps the robot make smooth turns, especially when navigating corners.
+![image](https://github.com/user-attachments/assets/1f33b9f7-c5f6-473e-8bac-bc382e48809f)
+The diagram below shows the details of the EV3 Medium Motor. 
+![image](https://github.com/user-attachments/assets/46009c6d-7a98-416c-bd47-9d992a100104)
+The EV3 Medium Motor is implemented due to its quick reactions and precise movements. As we can see from the diagram above, the running torque of 8Ncm and a stalled torque of 15 Ncm allow the self-driving car to handle the moderate forces that are needed for the steering, where small adjustments are needed. Moreover, the EV3 Medium Motor also provide us with a speed of 260 rpm, which means it can rotate quickly, making it ideal for rapid changes in direction or fine adjustments while avoiding traffic signs.
 
-(d)	Engineering principle of steering
-Our robot’s front steering uses a gear-down system, which slows down the turning motion for better control and precision in small rotations. This is especially helpful for making smooth, precise turns in smaller LEGO models.
-We also use Ackermann steering geometry, which gives each front wheel a slightly different angle when turning. This setup allows the inner and outer tires to follow separate paths, reducing tire slip and friction. By keeping the tires at the optimal angle, this design improves stability and reduces tire wear, helping the robot make sharp turns without sliding or tipping.
+ **(iii) Implementation of differential gear**
+The differential gear distributes power between two axles, allowing them to rotate at different speeds. This helps the self-driving car make smooth turns, especially when navigating corners of the inner walls.
 
-# 3.0	Obstacle Management
-In our project, we utilize the Clev3r-Python programming language to operate the robot. The programming structure is divided into two main sections: the Open Challenge and the Obstacle Challenge. This segment includes a flowchart and an overview of the code used for both challenges. Each part of the program is designed to meet specific requirements and optimize the robot's performance in different scenarios, providing a clear understanding of how the robot functions under distinct conditions.
-
-
-## 3.1	Open Challenge
-The left and right ultrasonic sensors help the robot determine its direction, whether it is moving clockwise or counterclockwise. These sensors detect the distance between the robot and nearby walls, allowing the robot to adjust its steering mechanism to avoid collisions. When an ultrasonic sensor reaches a certain threshold, indicating the absence of a wall, the robot will turn accordingly. Additionally, the gyro sensor ensures that the robot maintains a straight path and makes precise turns when necessary.
-		
-
-Below is the brief demostration video for Open Challenge
-https://www.youtube.com/watch?v=1dNnKrStQGQ 
- 
-## 3.2 Obstacle Challenge
-The upper Pixy 2 camera detects traffic signs. If it detects a red traffic sign, the robot's steering will turn right; if it detects a green traffic sign, the robot will respond similarly with the specified action for green. The bottom color sensor helps the robot follow the colored lines on the map. If it detects an orange line first, the robot will turn clockwise; if it detects a blue line first, it will turn counterclockwise.
-The rear Pixy 2 camera assists with U-turn decisions. When it detects a red signal, the robot performs a U-turn; if it detects green, the robot continues completing three normal laps.
-The gyro sensor maintains its primary role of ensuring the robot travels in a straight line and executes precise turns.
+![image](https://github.com/user-attachments/assets/e44b8791-7a6c-473c-b8a5-cfa9fa997d98)
 
 
-Below is the brief demostration video for Obstacle Challenge
-https://www.youtube.com/watch?v=YTYfLjIolEA
+**(iv) Engineering principle of steering**
+Our self-driving car’s front steering uses a gear-down system, which slows down the turning motion for better control and precision in small rotations. This is helpful during making smooth and precise turns to avoid traffic signs.
+
+![image](https://github.com/user-attachments/assets/fdee67cc-0364-4cfb-9363-5f409f2c4518)
+
+We also use Ackermann steering geometry, which gives each front wheel a slightly different angle when turning. This setup allows the inner and outer tyres to follow separate paths, reducing tyre slip and friction. By keeping the tyres at the optimal angle, this design improves stability and reduces tyre wear, helping the robot make sharp turns without sliding or tipping.
+
+![image](https://github.com/user-attachments/assets/88316739-27d2-447d-8ac8-3e3051477fa6)
+
+
+## 1.3 Building of the self-driving car
+In this section, the building instruction of the self-driving car and the video of the 3D printing parts process can be obtained through the QR Code below. 
+
+![image](https://github.com/user-attachments/assets/a7b13b1a-1238-45a2-85c2-71374b74af31)
+
+# 2.0	Power and sense management
+This section will discuss the self-driving car’s power source and the sensors required to provide the car with information to negotiate the different challenges. The discussion included the reasons for selecting various sensors and how they are being used on the car together with power consumption. The Build of Materials (BOM) and wiring diagram are also provided.
+
+## 2.1 Power source
+We’ve boosted our self-driving car’s energy with the Soshine Rechargeable AA Lithium-ion Battery, providing 1.5V and 2600mWh of power to keep it running smoothly. This battery is the key source of energy for our robot.
+
+![image](https://github.com/user-attachments/assets/5aed7002-80b5-4b2c-bb4d-ac39589a8e37)
+
+## 2.2 Sensor
+The self-driving car is equipped with a color sensor, two ultrasonic sensors, a gyro sensor and two Pixy 2 cameras. This powerful combination allows our self-driving car to encounter both Open and Obstacle Challenges. The diagram below shows the summary of the sensors that our self-driving car used.
+
+![image](https://github.com/user-attachments/assets/b8dcb73a-8bbe-45a5-8e30-69a10eb230a5)
+
+**(i) Pixy2 camera** 
+Two Pixy2 cameras are used to assist our self-driving car. The Pixy2 camera will enable the self-driving car to identify multiple traffic signs at once while in motion. It will also be utilized for tasks like detecting walls and following lines on a map.
+
+![image](https://github.com/user-attachments/assets/40a6704e-3554-4581-a4ae-95cfc640710e)
+
+**(ii) Gyro sensor**
+One gyro sensor is used to assist our self-driving car. The gyro sensor will help the self-driving car to calculate the angle and allow it to follow the correct orientation.
+
+![image](https://github.com/user-attachments/assets/15cf901f-b041-475e-bc47-0d3e777293b1)
+
+We initially used a compass sensor but switched to a gyro sensor due to interference from the self-driving car’s electromagnetic field, which affected compass accuracy. The LEGO EV3 gyro sensor effectively measures the self-driving car’s rotation angle, tracking tilt and rotational speed to maintain stable orientation and prevent drifting during turns. Although the EV3 gyro sensor can occasionally show an error on startup due to calibration issues, we had solved this issue by performing a hard reset each time the self-driving car is run, ensuring consistent accuracy in directional measurements.
+
+**(iii) Ultrasonic sensor**
+Two EV3 ultrasonic sensors are used to assist the self-driving car. The EV3 ultrasonic sensor is a digital device that measures the distance between the sensor and an object located in its path.
+
+![image](https://github.com/user-attachments/assets/358e0880-a942-4073-b336-444ed6edfc69)
+
+We originally used a Pixy2 camera to detect the walls, but due to frequent latency issues, we ended up switching to an ultrasonic sensor because it was able to read the required data faster and more directly. For both the open challenge and obstacle challenge, we chose to incorporate an ultrasonic sensor that measures the self-driving car’s distance from walls and detects corners. The sensor works by emitting sound waves and calculating the time it takes for them to return after hitting the wall. With this information, our self-driving car will be able to navigate effectively and make accurate turns, with the main goal of finishing the open challenge as quickly as possible.
+
+**(iv) Color sensor**
+One color sensor is only used in the obstacle challenge. It is used to determine when the self-driving car should turn. For a clockwise direction, the car will turn left every time it detects an orange line. Conversely, the robot will turn right when the color sensor detects a blue line in the counterclockwise direction. It works by measuring the intensity of the light that enters the sensor. The car uses the color sensor to determine whether the robot runs in a clockwise direction or counterclockwise direction by detecting the color line.
+
+![image](https://github.com/user-attachments/assets/ce3f847f-f362-41e8-bbf7-e51e2a0f6cf3)
+
+## 2.3 Build of materials
+Below is the Build Of Material (BOM) that is used to build the self-driving car and ensure each component aligned together with the self-driving car's functional needs.
+
 
 
 
