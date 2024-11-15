@@ -278,7 +278,7 @@ This section includes our design for the own manufacturing part and components. 
  
   Our autonomous self-driving car is built mainly from the Lego 45544 Mindstorms EV3 Education Set. In addition, we have also installed a 3ʳᵈ party sensor, the Pixy 2 camera, and incorporated a 3D printing component. We had created a casing for the color sensor by using the 3D printer. The primary purpose of the components is to prevent the external light from interfering with its color detection. Additionally, the casing serves to protect the sensor in case of impact or collision.
 
-![image](https://github.com/user-attachments/assets/41c3a438-dcb5-484f-9ede-96eeb04ee662)
+![image](https://github.com/user-attachments/assets/75ad0bc2-2a4b-4b10-a99f-3a78f47efc5e)
 
 # 5.0 Improvements
 
@@ -286,19 +286,19 @@ In this section, we outline the challenges encountered during the development of
 
 **(i)	Replace the compass sensor with the gyro sensor**
 
-![image](https://github.com/user-attachments/assets/26a6cc54-db3c-441c-bf91-c496197ff8e2)
+![image](https://github.com/user-attachments/assets/8248d2b3-ad86-4090-8491-27e4ffe06149)
 
 We initially used a compass sensor but ultimately switched to a gyro sensor. This decision was made because the wiring and electric motor in the device generate a strong electromagnetic field, which can interfere with the compass sensor and result in inaccurate readings. To address this issue, we ultimately decided to use a gyro sensor instead. The gyro sensor was chosen because it is less susceptible to electromagnetic interference from the device’s components, unlike the compass sensor. This allows the car to maintain consistent orientation and movement without disruptions from nearby magnetic fields.
 
 **(ii) Implementing a multiplexer to solve the limited EV3 ports issue**
 
-![image](https://github.com/user-attachments/assets/3a66bbe4-5539-4ce6-9c61-115190fe0246)
+![image](https://github.com/user-attachments/assets/3179f66c-0445-4265-b360-7953683c54cb)
 
 We also faced issue where we have only limited EV3 ports. Therefore, a multiplexer is used to solve this issue. The multiplexer allowed us to expand the number of available ports, enabling us to connect additional sensors and components to the EV3 without being limited by the device's built-in ports.
 
 **(iii)	Replace 44771-062225 wheels to 32019+86652 wheels**
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/a251ae40-662d-43b6-8b59-1ffc33789e18)
 
 We started with the LEGO 44771 - 6062225 wheels but switched to the smaller LEGO 32019+86652 wheels. The smaller size makes it easier for the car to turn and park, improving its maneuverability and handling in tight spaces.
 
