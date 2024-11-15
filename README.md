@@ -110,6 +110,70 @@ One color sensor is only used in the obstacle challenge. It is used to determine
 ## 2.3 Build of materials
 Below is the Build Of Material (BOM) that is used to build the self-driving car and ensure each component aligned together with the self-driving car's functional needs.
 
+![image](https://github.com/user-attachments/assets/edf40b93-14a0-4f05-a53d-56890844017a)
+
+![image](https://github.com/user-attachments/assets/3e0c9449-8a23-4fa2-be10-190d5ab3c3ab)
+
+![image](https://github.com/user-attachments/assets/2d4d05fc-8a8e-4d73-8137-992cee4be207)
+
+![image](https://github.com/user-attachments/assets/53b8d408-568e-41ce-bf6b-77e54c7fcbb8)
+
+![image](https://github.com/user-attachments/assets/cdec9e68-27ba-42e9-82d3-1fb6d86af942)
+
+![image](https://github.com/user-attachments/assets/cd6e1ac6-6dee-4340-9888-a4529a2a0003)
+
+![image](https://github.com/user-attachments/assets/425e3c1f-420d-4042-9fbc-3b9313ad969b)
+
+![image](https://github.com/user-attachments/assets/a805b64f-03f9-4aa5-9c7f-5cecab72e313)
+
+## 2.4 Wiring diagram
+The wiring diagram below shows the power consumption of the sensors and how the motors and sensors are connected to our self-driving car to support both the open challenge and obstacle challenge setups.
+
+**(i) Open challenge wiring diagram**
+
+![image](https://github.com/user-attachments/assets/cc337cec-f789-4e03-ad17-092d3d102937)
+
+**(ii) Obstacle challenge wiring diagram**
+
+![image](https://github.com/user-attachments/assets/32db55eb-6a62-471d-901a-ee2a03c19a8c)
+
+# 3.0 Obstacle management
+In our project, we utilize the Clev3r-Python programming language to operate the self-driving car. The programming structure is divided into two main sections: the Open Challenge and the Obstacle Challenge. This segment includes a flowchart and an overview of the code used for both challenges. Each part of the program is designed to meet specific requirements and optimize the self-driving car’s performance in different scenarios, providing a clear understanding of how the self-driving car functions under distinct conditions.
+
+## 3.1 Open challenge
+The left and right ultrasonic sensors help the self-driving car determine its direction, whether it is moving clockwise or counterclockwise. These sensors detect the distance between the self-driving car and nearby walls, allowing the car to adjust its steering mechanism to avoid collisions. When an ultrasonic sensor reaches a certain threshold, indicating the absence of a wall, the car will turn accordingly. Additionally, the gyro sensor ensures that the car maintains a straight path and makes precise turns when necessary.
+The diagram below shows the flowchart for the Open Challenge.
+
+![image](https://github.com/user-attachments/assets/a10cbc99-439a-4a44-8fe5-8b4bd8ac6810)
+
+Below are the explanation for the Open Challenge programming:
+
+![image](https://github.com/user-attachments/assets/3cb4db40-8f6c-4a73-af3a-7298a0dd47d2)
+
+The code snippet appears to set up a project in a folder named "prjs" with the title "Clever." Additionally, it sets the mode for two sensors (Sensor 1 and Sensor 3) to mode 0, which are preparing them for a basic operation and specific function.
+
+![image](https://github.com/user-attachments/assets/993518ea-f6bf-473f-b21f-2afcf6b42fe9)
+
+The waitDegrees function pauses the program until motor D rotates a specified number of degrees. It records the initial degree count of motor D and enters a loop that continues until the difference between the current count and the initial count reaches the desired degree threshold. During this wait, it repeatedly calls the Steering function to maintain the self-driving car’s steering. 
+
+![image](https://github.com/user-attachments/assets/b9a75ff8-263c-4888-9867-e3048e5f3cd8)
+The setSensorMode function sets up a multiplexer sensor by choosing the port, channel and mode. It calculates the I2C address for the channel and sends a command to set the sensor’s mode. This allows the self-driving car to adapt the sensor's functionality according to the requirements of the task.
+
+![image](https://github.com/user-attachments/assets/a3b6a082-7a82-497c-b315-5e991266e73e)
+The function getValue takes three parameters: port, channel, and values. It calculates the I2C address for the specified channel by adding 80 to the channel number (adjusted by subtracting 1). The function then reads two registers from the sensor using the Sensor.ReadI2CRegisters, starting at the calculated address. It combines the two bytes of data to compute a single value, which is assigned to the values output parameter. Finally, it clears the LCD display and shows the values at the specified position on the screen.
+
+![image](https://github.com/user-attachments/assets/2a42a1b0-1d79-4337-b72d-83f08fd9f273)
+This code snippet initializes several variables and configures sensors for a self-driving car’s movement. It sets values such as target, loopCount, cw, gyroLastError, and wallError to zero, which likely represents the target value, loop iteration count, a clockwise direction indicator, and error values for gyro and wall sensors, respectively.
+The setSensorMode function is called to configure two sensors on port 2, with channels 1 and 2, both set to mode 0, possibly for basic functionality. After that, the getValue function retrieves distance readings from the left and right sensors (channels 1 and 2) and assigns these values to the variables leftDistance and rightDistance. This setup is likely part of a control loop for a robot to navigate based on distance measurements from its surroundings.
+
+![image](https://github.com/user-attachments/assets/83662a78-2cc1-4356-b9e8-e58c738e0da8)
+The ResetSteering subroutine reset motor A. It starts the motor at 50% power for 500 milliseconds, then waits until the motor stops. Afterwards, it moves the motor backwards at -50% speed for 110 degrees and finally resets the motor's position count. The Motor. The move function specifies the motor port, speed, rotation degrees, and brake mode.
+
+![image](https://github.com/user-attachments/assets/a3e6b349-12bf-49d1-acc3-22842ca0aebd)
+![image](https://github.com/user-attachments/assets/ddcfbd4f-ee31-4a19-8ac5-de7024c2632f)
+
+The subroutine Steering calculates the steering adjustments for a self-driving car based on its relative heading and wall distances. It first reads the raw value from sensor 3, adjusts it by negating it and adding a target value to get relativeHeading. If the absolute value of relativeHeading is less than 20 and loopCount is greater than 0, it checks if the self-driving car is moving clockwise (cw = 1). Depending on the direction, it retrieves the right or left distance using getValue, updating the Wall variable if the distance is less than 2500.
+The subroutine then computes a gyro correction based on the relativeHeading and its previous error and a wall correction based on the distance to the wall. These corrections are combined to determine the steering adjustment and turn. If the condition is not met, it turns to a scaled version of relativeHeading. Finally, it calculates the power for the medium motor by adjusting the steering power based on the difference between the calculated turn and the motor count and activates the motor with Motor.StartPower("A", steeringPower).
 
 
 
