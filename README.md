@@ -22,6 +22,7 @@ Our team is composed of three dedicated members who meticulously oversee the cri
 
 # Performance video
 This video provides an in-depth look at the structure of our self-driving car, a demonstration of its performance in both the Open Challenge and Obstacles Challenge, and a detailed explanation of how the car operates within each challenge. Please scan the QR code to watch the video and explore our project in action.
+
 ![image](https://github.com/user-attachments/assets/c58d3a75-2d0c-4547-bfa3-9f3a22b076c9)
 
 # 1.0 Mobility management
