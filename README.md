@@ -2,17 +2,17 @@
 This engineer’s documentation comprises engineering materials of the autonomous vehicle robot’s model, designed for participation in the WRO Future Engineers Competition in 2024.
 
 # Content
-schemes This folder contains one or several schematic diagrams in the form of JPEG, PNG, or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect.
+**schemes** This folder contains one or several schematic diagrams in the form of JPEG, PNG, or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect.
 
-src This folder contains all the programming flowcharts and all programming used to participate in the WRO 2024 Future Engineers Category.
+**src** This folder contains all the programming flowcharts and all programming used to participate in the WRO 2024 Future Engineers Category.
 
-pictures-team & vehicle This folder contains photos of the team participating in the WRO, photos of the vehicle (from all sides and bottom views) and photo shown in documentation.
+**pictures-team & vehicle** This folder contains photos of the team participating in the WRO, photos of the vehicle (from all sides and bottom views) and photo shown in documentation.
 
-video This folder contains video.md file that demonstrates how the robot functions to solve both tasks.
+**video** This folder contains video.md file that demonstrates how the robot functions to solve both tasks.
 
-models This folder contains the 3D design of the vehicle in .lxf and the rendered model of the vehicle.
+**models** This folder contains the 3D design of the vehicle in .lxf and the rendered model of the vehicle.
 
-other This folder contains other files which can be used to understand how to prepare the vehicle for the competition.
+**other** This folder contains other files which can be used to understand how to prepare the vehicle for the competition.
 
 # I-Robocom Team, Malaysia
 Our team is composed of three dedicated members who meticulously oversee the critical aspects of our autonomous vehicle's construction. Introducing Team I-Robocom from Malaysia - a passionate group devoted to refining the essential electromechanical components that power our fully autonomous vehicle. Let’s meet our team members: 
