@@ -21,9 +21,9 @@ Our team is composed of three dedicated members who meticulously oversee the cri
 ![image](https://github.com/user-attachments/assets/84435c43-2075-4297-839f-361b506616f9)
 
 # Performance video
-Get a closer look at our self-driving car’s design, watch its performance in the Open and Obstacles Challenges, and explore the technology behind its operation by clicking the link https://youtu.be/7t6WDGnzcJU or scan the QR code to watch the video and explore our project in action. 
+This video provides an in-depth look at the structure of our self-driving car, a demonstration of its performance in both the Open Challenge and Obstacles Challenge, and a detailed explanation of how the car operates within each challenge. Please click the link https://youtu.be/7t6WDGnzcJU or scan the QR code to watch the video and explore our project in action.
 
-![image](https://github.com/user-attachments/assets/2cd84989-54d7-49c5-9762-2793315589a4)
+![image](https://github.com/user-attachments/assets/71be180f-30ef-4d92-b303-cc9ae80dd125)
 
 # 1.0 Mobility management
 This section provides an overview of the self-driving car’s design, detailing how its movement is controlled, along with the types of motors used and its implementation to the car. It includes a summary of the car’s chassis design and how various components are mounted on the structure. Additionally, key engineering principles such as speed, torque, and power are discussed.
