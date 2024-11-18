@@ -71,13 +71,20 @@ We also use Ackermann steering geometry, which gives each front wheel a slightly
 
 ## 1.3 Building of the self-driving car
 
-In this section, the building instruction of the self-driving car and the video of the 3D printing parts process can be obtained through the QR Code below. 
+In this section, the building instruction of the self-driving car and the video of the 3D printing parts process can be obtained through the link or QR Code below. 
 
-Robot Building Instruction
+**Robot Building Instruction**
+
 https://github.com/11grace17/I-Robocom/blob/main/models/I-Robocom%20Building%20Instruction.pdf 
 
-Please click the link https://youtu.be/nPkDxdlI2Hc or scan the QR code below to have a look about our 3D parts printing process
-![image](https://github.com/user-attachments/assets/a7b13b1a-1238-45a2-85c2-71374b74af31)
+![image](https://github.com/user-attachments/assets/695e200b-9a7e-483d-82c3-b2448ca0cdc1)
+
+**3D parts printing process**
+
+https://youtu.be/nPkDxdlI2Hc
+
+![image](https://github.com/user-attachments/assets/732670ad-bdc1-449a-ace8-758fed281f90)
+
 
 # 2.0	Power and sense management
 
@@ -201,7 +208,7 @@ The subroutine Steering calculates the steering adjustments for a self-driving c
 
 The subroutine then computes a gyro correction based on the relativeHeading and its previous error and a wall correction based on the distance to the wall. These corrections are combined to determine the steering adjustment and turn. If the condition is not met, it turns to a scaled version of relativeHeading. Finally, it calculates the power for the medium motor by adjusting the steering power based on the difference between the calculated turn and the motor count and activates the motor with Motor.StartPower("A", steeringPower).
 
-![image](https://github.com/user-attachments/assets/ae0ddc0b-8f90-4268-818a-7a04e66497b0)
+![image](https://github.com/user-attachments/assets/ce0d2409-21b3-4fa2-a126-fd95aee0f3b0)
 
 The code snippet starts by activating motor "D" at 75% power using Motor.StartPower("D", 75). It then retrieves distance measurements from two sensors: it calls getValue(2, 1, leftDistance) to get the left distance and getValue(2, 2, rightDistance) to get the right distance. This setup is likely part of a control mechanism for navigating or avoiding obstacles based on the distances measured by the sensors.
 
