@@ -279,7 +279,8 @@ This section includes our design for the own manufacturing part and components. 
  
   Our autonomous self-driving car is built mainly from the Lego 45544 Mindstorms EV3 Education Set. In addition, we have also installed a 3ʳᵈ party sensor, the Pixy 2 camera, and incorporated a 3D printing component. We had created a casing for the color sensor by using the 3D printer. The primary purpose of the components is to prevent the external light from interfering with its color detection. Additionally, the casing serves to protect the sensor in case of impact or collision.
 
-![image](https://github.com/user-attachments/assets/75ad0bc2-2a4b-4b10-a99f-3a78f47efc5e)
+![image](https://github.com/user-attachments/assets/bf1a2417-fb26-4cec-9434-df97cfa7f79e)
+
 
 # 5.0 Improvements
 
