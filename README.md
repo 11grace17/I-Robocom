@@ -76,7 +76,7 @@ In this section, the building instruction of the self-driving car and the video 
 Robot Building Instruction
 https://github.com/11grace17/I-Robocom/blob/main/models/I-Robocom%20Building%20Instruction.pdf 
 
-
+Please click the link https://youtu.be/nPkDxdlI2Hc or scan the QR code below to have a look about our 3D parts printing process
 ![image](https://github.com/user-attachments/assets/a7b13b1a-1238-45a2-85c2-71374b74af31)
 
 # 2.0	Power and sense management
