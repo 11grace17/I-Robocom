@@ -73,6 +73,10 @@ We also use Ackermann steering geometry, which gives each front wheel a slightly
 
 In this section, the building instruction of the self-driving car and the video of the 3D printing parts process can be obtained through the QR Code below. 
 
+Robot Building Instruction
+https://github.com/11grace17/I-Robocom/blob/main/models/I-Robocom%20Building%20Instruction.pdf 
+
+
 ![image](https://github.com/user-attachments/assets/a7b13b1a-1238-45a2-85c2-71374b74af31)
 
 # 2.0	Power and sense management
