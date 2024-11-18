@@ -1,5 +1,5 @@
 # Introduction
-This engineer’s documentation comprises engineering materials of the autonomous vehicle robot’s model, designed for participation in the WRO Future Engineers Competition in 2024.
+This engineer’s documentation comprises engineering materials of the autonomous vehicle robot’s model, designed for participation in the WRO International Final 2024 Future Engineers Competition.
 
 # Content
 **schemes** This folder contains one or several schematic diagrams in the form of JPEG, PNG, or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect.
