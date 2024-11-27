@@ -77,7 +77,8 @@ In this section, the building instruction of the self-driving car and the video 
 
 https://github.com/11grace17/I-Robocom/blob/main/models/I-Robocom%20Building%20Instruction.pdf 
 
-![image](https://github.com/user-attachments/assets/695e200b-9a7e-483d-82c3-b2448ca0cdc1)
+![image](https://github.com/user-attachments/assets/214d6586-9be5-4996-a975-4a29898cb151)
+
 
 **3D parts printing process**
 
